@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.contenedor {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:    "header header header header header"
+                            "table1 table2 table3 table4 table5"
+                            "table6 table7 table8 table9 table10"
+                            "funcion funcion funcion funcion funcion"
+                            "footer footer footer footer foooter";
+}
+
+.contenedor .header {
+    grid-area: header;
+}
+
+.contenedor .tabla1 {
+    grid-area: table1;
+}
+
+.contenedor .tabla2 {
+    grid-area: table2;
+}
+
+.contenedor .tabla3 {
+    grid-area: table3;
+}
+
+.contenedor .tabla4 {
+    grid-area: table4;
+}
+
+.contenedor .tabla5 {
+    grid-area: table5;
+}
+.contenedor .tabla6 {
+    grid-area: table6;
+}
+.contenedor .tabla7 {
+    grid-area: table7;
+}
+.contenedor .tabla8 {
+    grid-area: table8;
+}
+
+.contenedor .tabla9 {
+    grid-area: table9;
+}
+.contenedor .tabla10 {
+    grid-area: table10;
+}
+
+.contenedor .tabla1 tr td,
+.contenedor .tabla2 tr td,
+.contenedor .tabla3 tr td,
+.contenedor .tabla4 tr td,
+.contenedor .tabla5 tr td,
+.contenedor .tabla6 tr td,
+.contenedor .tabla7 tr td,
+.contenedor .tabla8 tr td,
+.contenedor .tabla9 tr td,
+.contenedor .tabla10 tr td {
+    display: block;
+}
+
+.contenedor .funciones {
+    grid-area: funcion;
+}
+
+.contenedor .piePagina {
+    grid-area: footer;
+}

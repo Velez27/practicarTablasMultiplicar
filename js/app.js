@@ -1,3 +1,4 @@
+// Funcion para realizar el calculo de las tablas de multiplicacion
 function multiplicationTables(num) {
     var table = [];
     var resultado;
@@ -8,6 +9,7 @@ function multiplicationTables(num) {
     return table;
 }
 
+// Funcion para desplegar las tablas de multiplicacion en el HTML
 function tables(numTable, numMultiplication) {
     var table = document.getElementById(numTable);
     const multiplication = multiplicationTables(numMultiplication);
@@ -20,7 +22,87 @@ function tables(numTable, numMultiplication) {
     }
 }
 
+// Se ejecutan las funciones para mostrar todas las tablas
 for(let i = 1; i <= 10; i++) {
     tables(`tabla${i}`, i);
 }
 
+// Traer Boton Practicar
+var buttonPracticar = document.getElementById('button_practicar');
+buttonPracticar.addEventListener('click', practicarTablas);
+
+// Funcion del Boton Practicar
+function practicarTablas() {
+    ocultarTables(true);
+    var contenedor = document.getElementById('contenedor');
+    // Crear Boton Finalizar
+    var buttonFinalizar = document.createElement('BUTTON');
+    buttonFinalizar.id = 'button_finalizar';
+    buttonFinalizar.innerHTML = 'Finalizar';
+    buttonFinalizar.addEventListener('click', () => {
+        ocultarTables(false);
+        buttonFinalizar.remove();
+        buttonVerificar.remove();
+        labelEjercicio.remove();
+        inputResultado.remove();
+    });
+    contenedor.appendChild(buttonFinalizar);
+    //Crear Ejercicios de Practica
+    var labelEjercicio = document.createElement('LABEL');
+    labelEjercicio.id = 'label_ejercicio';
+    labelEjercicio.textContent = `${num1 = aleatorio(2, 9)} x ${num2 = aleatorio(2, 9)} = `;
+    contenedor.appendChild(labelEjercicio);
+    // Crear Input para guardar resultado
+    var inputResultado = document.createElement('INPUT');
+    inputResultado.type = 'text';
+    inputResultado.id = 'input_resultado';
+    contenedor.appendChild(inputResultado);
+    // Crear Boton para Verificar Resultado
+    var buttonVerificar = document.createElement('BUTTON');
+    buttonVerificar.innerHTML = 'Comprobar';
+    buttonVerificar.id = 'button_verificar';
+    buttonVerificar.addEventListener('click', () => {
+        var resultado = num1 * num2;
+        var mensaje = document.createElement('P');
+       if(resultado == parseInt(inputResultado.value)) {
+           mensaje.innerHTML = 'Correcto';
+           contenedor.appendChild(mensaje);
+           setTimeout(() => {mensaje.remove()}, 3000);
+           labelEjercicio.textContent = `${num1 = aleatorio(2, 9)} x ${num2 = aleatorio(2, 9)} = `;
+           inputResultado.value = "";
+       } else {
+            mensaje.innerHTML = 'Error';
+            contenedor.appendChild(mensaje);
+            setTimeout(() => {mensaje.remove()}, 3000);
+           inputResultado.value = "";
+       }
+    });
+    contenedor.appendChild(buttonVerificar);
+}
+
+// Funcion para generar numeros aleatorios
+function aleatorio(min, max)
+{
+  var resultado;
+  resultado = Math.floor(Math.random() * (max - min + 1)) + min;
+  return resultado;
+}
+
+// Funcion para ocultar tablas de multiplicar y su titulo
+function ocultarTables(valor) {
+    var contenedor = document.getElementsByClassName('contenedor');
+    var listaContenedor = contenedor[0].childNodes;
+    if(valor == true) {
+        for (let i = 3; i < listaContenedor.length; i++) {
+            if (i % 2 != 0) {
+                listaContenedor[i].hidden = true;
+            }
+        }
+    } else {
+        for (let i = 3; i < listaContenedor.length; i++) {
+            if (i % 2 != 0) {
+                listaContenedor[i].hidden = false;
+            }
+        }
+    }
+}
