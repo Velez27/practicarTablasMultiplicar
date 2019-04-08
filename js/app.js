@@ -54,9 +54,10 @@ function practicarTablas() {
     contenedor.appendChild(labelEjercicio);
     // Crear Input para guardar resultado
     var inputResultado = document.createElement('INPUT');
-    inputResultado.type = 'text';
+    inputResultado.type = 'number';
     inputResultado.id = 'input_resultado';
     contenedor.appendChild(inputResultado);
+    inputResultado.focus();
     // Crear Boton para Verificar Resultado
     var buttonVerificar = document.createElement('BUTTON');
     buttonVerificar.innerHTML = 'Comprobar';
@@ -64,17 +65,20 @@ function practicarTablas() {
     buttonVerificar.addEventListener('click', () => {
         var resultado = num1 * num2;
         var mensaje = document.createElement('P');
+        mensaje.id = 'p_mensaje';
        if(resultado == parseInt(inputResultado.value)) {
            mensaje.innerHTML = 'Correcto';
            contenedor.appendChild(mensaje);
            setTimeout(() => {mensaje.remove()}, 3000);
            labelEjercicio.textContent = `${num1 = aleatorio(2, 9)} x ${num2 = aleatorio(2, 9)} = `;
            inputResultado.value = "";
+           inputResultado.focus();
        } else {
-            mensaje.innerHTML = 'Error';
+            mensaje.innerHTML = 'Intente de nuevo';
             contenedor.appendChild(mensaje);
             setTimeout(() => {mensaje.remove()}, 3000);
            inputResultado.value = "";
+           inputResultado.focus();
        }
     });
     contenedor.appendChild(buttonVerificar);
@@ -93,13 +97,13 @@ function ocultarTables(valor) {
     var contenedor = document.getElementsByClassName('contenedor');
     var listaContenedor = contenedor[0].childNodes;
     if(valor == true) {
-        for (let i = 3; i < listaContenedor.length; i++) {
+        for (let i = 3; i < 25; i++) {
             if (i % 2 != 0) {
                 listaContenedor[i].hidden = true;
             }
         }
     } else {
-        for (let i = 3; i < listaContenedor.length; i++) {
+        for (let i = 3; i < 25; i++) {
             if (i % 2 != 0) {
                 listaContenedor[i].hidden = false;
             }

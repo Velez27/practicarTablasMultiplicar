@@ -3,7 +3,15 @@
     margin: 0;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #1B9CFC;
+}
+
 .contenedor {
+    padding: 10px;
+    min-height: 100%;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(5, 1fr);
@@ -13,10 +21,15 @@
                             "table6 table7 table8 table9 table10"
                             "funcion funcion funcion funcion funcion"
                             "footer footer footer footer foooter";
+    justify-items: center;
 }
 
+
+/* ELEMENTOS HTML DE INICIO*/
 .contenedor .header {
     grid-area: header;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .contenedor .tabla1 {
@@ -55,6 +68,43 @@
     grid-area: table10;
 }
 
+.contenedor .tabla1,
+.contenedor .tabla2,
+.contenedor .tabla3,
+.contenedor .tabla4,
+.contenedor .tabla5,
+.contenedor .tabla6,
+.contenedor .tabla7,
+.contenedor .tabla8,
+.contenedor .tabla9,
+.contenedor .tabla10 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background:#0EC1E6;
+    border-radius: 10px;
+}
+
+.contenedor .tabla1:hover,
+.contenedor .tabla2:hover,
+.contenedor .tabla3:hover,
+.contenedor .tabla4:hover,
+.contenedor .tabla5:hover,
+.contenedor .tabla6:hover,
+.contenedor .tabla7:hover,
+.contenedor .tabla8:hover,
+.contenedor .tabla9:hover,
+.contenedor .tabla10:hover {
+    background: #0FFEE6;
+    color: #0F19FE;
+    transition-delay: .1s;
+}
+
+.contenedor table {
+    display: flex;
+    justify-content: center;
+}
+
 .contenedor .tabla1 tr td,
 .contenedor .tabla2 tr td,
 .contenedor .tabla3 tr td,
@@ -68,10 +118,73 @@
     display: block;
 }
 
+.contenedor td {
+    font-size: 18px;
+    text-align: left;
+}
+
 .contenedor .funciones {
     grid-area: funcion;
 }
 
 .contenedor .piePagina {
     grid-area: footer;
+    justify-self: right;
+}
+
+.contenedor button {
+    width: 200px;
+    height: 30px;
+    background: #0F19FE;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.contenedor button:hover {
+    background: #0FFEE6;
+    color: black;
+    transition-duration: 1s;
+}
+
+
+/* ELEMENTOS HTML GENERADOR POR JS*/
+#label_ejercicio {
+    grid-area: table7;
+    font-size: 40px;
+}
+
+/* QUITAR EL SCROLL AL INPUT TIPO NUMBER*/
+#input_resultado::-webkit-inner-spin-button,
+#input_resultado::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+#input_resultado {
+    grid-area: table8;
+    width: 50%;
+    height: 50px;
+    font-size: 40px;
+    -moz-appearance: textfield;
+    border: 1px solid #000;
+    background: #1B9CFC;
+    color: #fff;
+}
+
+#p_mensaje {
+    grid-area: table9;
+    font-size: 30px;
+}
+
+#button_verificar {
+    grid-area: table10;
+    width: 50%;
+    height: 50px;
+}
+
+#button_finalizar {
+    grid-area: funcion;
+    width: 20%;
+    height: 50px;
 }
