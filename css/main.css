@@ -173,18 +173,51 @@ html, body {
 }
 
 #p_mensaje {
-    grid-area: table9;
+    grid-area: table3;
     font-size: 30px;
 }
 
 #button_verificar {
-    grid-area: table10;
-    width: 50%;
+    grid-area: table9;
     height: 50px;
 }
 
 #button_finalizar {
     grid-area: funcion;
-    width: 20%;
     height: 50px;
+}
+
+@media screen and (max-width: 620px) {
+    .contenedor {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, auto);
+        grid-template-areas:    "header header"
+                                "funcion funcion"
+                                "table1 table2"
+                                "table3 table4"
+                                "table5 table6"
+                                "table7 table8"
+                                "table9 table10"
+                                "footer footer";
+        justify-items: center;
+    }
+    #label_ejercicio {
+        grid-area: table1;
+    }
+    #input_resultado {
+        grid-area: table2;
+    }
+    #p_mensaje {
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    #button_verificar {
+        grid-column: 1/3;
+        grid-row: 4/5;
+        justify-self: center;
+    }
+    #button_finalizar {
+        grid-column: 1/3;
+        grid-row: 5/6;
+    }
 }

@@ -38,7 +38,7 @@ function practicarTablas() {
     // Crear Boton Finalizar
     var buttonFinalizar = document.createElement('BUTTON');
     buttonFinalizar.id = 'button_finalizar';
-    buttonFinalizar.innerHTML = 'Finalizar';
+    buttonFinalizar.innerHTML = 'Finalizar/Finish';
     buttonFinalizar.addEventListener('click', () => {
         ocultarTables(false);
         buttonFinalizar.remove();
@@ -60,7 +60,7 @@ function practicarTablas() {
     inputResultado.focus();
     // Crear Boton para Verificar Resultado
     var buttonVerificar = document.createElement('BUTTON');
-    buttonVerificar.innerHTML = 'Comprobar';
+    buttonVerificar.innerHTML = 'Comprobar/Check';
     buttonVerificar.id = 'button_verificar';
     buttonVerificar.addEventListener('click', () => {
         var resultado = num1 * num2;
